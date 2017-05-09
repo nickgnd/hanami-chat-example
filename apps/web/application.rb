@@ -235,17 +235,16 @@ module Web
       #
       #  * https://developer.mozilla.org/en-US/docs/Web/Security/CSP/CSP_policy_directives
       #
-      # FIXME: set CSP correctly
-      # - default-src 'none';
-      # - script-src 'self';
-      # - connect-src 'self';
-      # - font-src 'self';
       security.content_security_policy %{
         form-action 'self';
         frame-ancestors 'self';
         base-uri 'self';
+        default-src 'none';
+        script-src 'self' 'unsafe-inline';
+        connect-src 'self' ws:;
         img-src 'self' https: data:;
         style-src 'self' 'unsafe-inline' https:;
+        font-src 'self' data:;
         object-src 'none';
         plugin-types application/pdf;
         child-src 'self';
