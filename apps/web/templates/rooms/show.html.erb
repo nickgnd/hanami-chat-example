@@ -1,18 +1,25 @@
-h2 ="Room: #{room_id}"
+<h2>Room: <%= room_id %></h2>
 
-.messages#message_list
+<div id="message_list" class="messages"></div>
 
-.message-form
-  form#message_form
-    .row
-      input#message_txt type="text" required="required"
-    .row
-      button.btn type="submit"
-        span Send!
+<div class="message-form">
+  <%=
+    form_for :message_form, nil, id: 'message_form' do
+      div(class: 'row') do
+        text_field :message_txt, required: 'required', id: 'message_txt'
+      end
 
-javascript:
-  var roomId = "#{{ room_id }}";
-  var user = "#{{ user }}";
+      div(class: 'row') do
+        submit 'Send!', class: 'btn'
+      end
+    end
+  %>
+</div>
+
+<script type="text/javascript">
+
+  var roomId = "<%= room_id %>";
+  var user = "<%= user %>";
   var socketId = Date.now();
 
   var messageList = document.getElementById("message_list");
@@ -45,7 +52,7 @@ javascript:
   };
 
   ActionCable.startDebugging();
-  var cable = ActionCable.createConsumer('#{{ CABLE_URL }}?sid=' + socketId);
+  var cable = ActionCable.createConsumer('<%= CABLE_URL %>?sid=' + socketId);
 
   var chatChannel = cable.subscriptions.create(
     { channel: 'chat', id: roomId },
@@ -66,3 +73,5 @@ javascript:
       }
     }
   )
+
+</script>

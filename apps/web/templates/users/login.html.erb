@@ -1,0 +1,13 @@
+<h2>Your Name</h2>
+
+<%=
+  form_for :room, '/users' do
+    div(class: 'row') do
+      text_field :title, required: 'required', name: 'user'
+    end
+
+    div(class: 'row') do
+      submit 'Go!', class: 'btn'
+    end
+  end
+%>

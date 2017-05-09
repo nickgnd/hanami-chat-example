@@ -13,10 +13,6 @@ gem 'litecable'
 gem 'anyway_config', '~> 0.5.0'
 gem 'websocket', '~> 1.2.4'
 
-
-# TODO: temporary, until switch to erb engine
-gem 'slim'
-
 group :development do
   # Code reloading
   # See: http://hanamirb.org/guides/projects/code-reloading

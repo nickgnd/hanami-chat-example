@@ -1,0 +1,13 @@
+<h2>Room Id</h2>
+
+<%=
+  form_for :room, '/rooms' do
+    div(class: 'row') do
+      text_field :title, required: 'required', name: 'id'
+    end
+
+    div(class: 'row') do
+      submit 'Go!', class: 'btn'
+    end
+  end
+%>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hanami LiteCable</title>
+    <meta content="width=device-width" name="viewport" />
+    <meta charset="UTF-8" />
+    <%= stylesheet 'reset', 'app' %>
+    <%= javascript 'cable' %>
+    <%= favicon %>
+  </head>
+  <body>
+    <div class="header">
+      <h1 class="title">
+        <%= link_to 'Hanami LiteCable', routes.home_path %>
+      </h1>
+    </div>
+    <div class="container main">
+      <%= yield %>
+    </div>
+  </body>
+</html>
