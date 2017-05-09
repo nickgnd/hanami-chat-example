@@ -1,0 +1,4 @@
+project=hanami_chat
+architecture=container
+test=minitest
+template=erb

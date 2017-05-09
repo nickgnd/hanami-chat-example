@@ -1,0 +1,2 @@
+module HanamiChat
+end
