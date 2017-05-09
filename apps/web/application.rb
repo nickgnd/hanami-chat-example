@@ -1,6 +1,8 @@
 require 'hanami/helpers'
 require 'hanami/assets'
 
+CABLE_URL = ENV['ANYCABLE'] ? 'ws://localhost:9293/cable' : '/cable'
+
 module Web
   class Application < Hanami::Application
     configure do
@@ -71,7 +73,7 @@ module Web
       #               See #scheme and #ssl?
       #   :httponly - Prevent JavaScript access (Boolean - true by default)
       #
-      # cookies true
+      cookies true
       # or
       # cookies max_age: 300
 
@@ -81,7 +83,7 @@ module Web
       #
       # See: http://www.rubydoc.info/gems/rack/Rack/Session/Cookie
       #
-      # sessions :cookie, secret: ENV['WEB_SESSIONS_SECRET']
+      sessions :cookie, secret: ENV['WEB_SESSIONS_SECRET']
 
       # Configure Rack middleware for this application
       #
@@ -233,16 +235,17 @@ module Web
       #
       #  * https://developer.mozilla.org/en-US/docs/Web/Security/CSP/CSP_policy_directives
       #
+      # FIXME: set CSP correctly
+      # - default-src 'none';
+      # - script-src 'self';
+      # - connect-src 'self';
+      # - font-src 'self';
       security.content_security_policy %{
         form-action 'self';
         frame-ancestors 'self';
         base-uri 'self';
-        default-src 'none';
-        script-src 'self';
-        connect-src 'self';
         img-src 'self' https: data:;
         style-src 'self' 'unsafe-inline' https:;
-        font-src 'self';
         object-src 'none';
         plugin-types application/pdf;
         child-src 'self';
