@@ -1,8 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.5.1)
-      public_suffix (~> 2.0, >= 2.0.2)
+    addressable (2.8.0)
+      public_suffix (>= 2.0.2, < 5.0)
     anycable (0.4.5)
       anyway_config (~> 0.5.0)
       grpc (~> 1.1.0)
@@ -53,7 +53,7 @@ GEM
       dry-types (~> 0.9, >= 0.9.0)
     faraday (0.12.1)
       multipart-post (>= 1.2, < 3)
-    google-protobuf (3.3.0-universal-darwin)
+    google-protobuf (3.3.0)
     googleauth (0.5.1)
       faraday (~> 0.9)
       jwt (~> 1.4)
@@ -62,7 +62,7 @@ GEM
       multi_json (~> 1.11)
       os (~> 0.9)
       signet (~> 0.7)
-    grpc (1.1.2-universal-darwin)
+    grpc (1.1.2)
       google-protobuf (~> 3.1)
       googleauth (~> 0.5.1)
     hanami (1.0.0)
@@ -132,7 +132,7 @@ GEM
     nokogiri (1.7.1)
       mini_portile2 (~> 2.1.0)
     os (0.9.6)
-    public_suffix (2.0.5)
+    public_suffix (4.0.6)
     puma (3.8.2)
     rack (2.0.1)
     rack-test (0.6.3)
